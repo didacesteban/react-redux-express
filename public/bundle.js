@@ -9748,7 +9748,7 @@ var _reactDom = __webpack_require__(98);
 
 var _redux = __webpack_require__(190);
 
-var _reducers = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./reducers\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+var _reducers = __webpack_require__(206);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -23450,6 +23450,60 @@ function applyMiddleware() {
     };
   };
 }
+
+/***/ }),
+/* 206 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _redux = __webpack_require__(190);
+
+var _reducers = __webpack_require__(207);
+
+var _reducers2 = _interopRequireDefault(_reducers);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var allReducers = (0, _redux.combineReducers)({
+    counterApp: Add
+});
+
+exports.default = allReducers;
+
+/***/ }),
+/* 207 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var initalState = {
+  counter: 0
+};
+
+function counterApp(state, action) {
+  if (typeof state === 'undefined') {
+    return initialState;
+  }
+
+  switch (action.type) {
+    case 'ADD':
+      return Object.assign({}, state, { counter: counter + 1 });
+    default:
+      return state;
+  }
+}
+
+exports.default = counterApp;
 
 /***/ })
 /******/ ]);
